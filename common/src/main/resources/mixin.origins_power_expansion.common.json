@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.jarva.origins_power_expansion.mixin",
+  "mixins": [
+    "MobPowerMixin",
+    "PlayerMixin"
+  ]
+}

@@ -21,10 +21,10 @@ public abstract class PlayerMixin extends Entity {
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        super.playStepSound(pos, state);
         List<CustomFootstepPower> powers = OriginComponent.getPowers(this, CustomFootstepPower.class);
-        if (!powers.isEmpty()) {
-            powers.get(0).playFootstep(this);
-        }
+        if (powers.stream().anyMatch(CustomFootstepPower::isMuted)) return;
+        super.playStepSound(pos, state);
+        if (powers.isEmpty()) return;
+        powers.forEach(power -> power.playFootstep(this));
     }
 }

@@ -6,10 +6,10 @@ license = "All Rights Reserved"
 [[mods]]
 modId = "origins_power_expansion"
 version = "${version}"
-displayName = "Not Just Origins"
+displayName = "Origins Power Expansion"
 authors = "Jarva"
 description = '''
-Custom content for OriginsPowerExpansion
+Additional Powers and Actions for Origins
 '''
 #logoFile = ""
 

@@ -27,12 +27,12 @@ public abstract class MobPowerMixin extends LivingEntity {
         }
 
         List<MobsIgnorePower> powers = OriginComponent.getPowers(target, MobsIgnorePower.class);
-        boolean groupPowerMatch = powers.stream().anyMatch(power -> power.containsMobGroup(this.getMobType()));
+        boolean groupPowerMatch = powers.stream().anyMatch(power -> power.getMobGroups().contains(this.getMobType()));
         if (groupPowerMatch) {
             return null;
         }
 
-        boolean mobPowerMatch = powers.stream().anyMatch(power -> power.containsMobType(this.getType()));
+        boolean mobPowerMatch = powers.stream().anyMatch(power -> power.getMobTypes().contains(this.getType()));
         if (mobPowerMatch) {
             return null;
         }

@@ -1,13 +1,14 @@
 package me.jarva.origins_power_expansion.registry;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import io.github.apace100.origins.OriginsClient;
-import me.shedaniel.architectury.registry.KeyBindings;
 import io.github.apace100.origins.Origins;
+import io.github.apace100.origins.OriginsClient;
+import me.shedaniel.architectury.platform.Platform;
+import me.shedaniel.architectury.registry.KeyBindings;
 import net.minecraft.client.KeyMapping;
 import org.lwjgl.glfw.GLFW;
 
-public class KeybindsRegistry {
+public class KeybindRegistry {
     public static KeyMapping useTernaryActivePowerKeybind;
     public static KeyMapping useQuaternaryActivePowerKeybind;
     public static KeyMapping useQuinaryActivePowerKeybind;
@@ -18,6 +19,7 @@ public class KeybindsRegistry {
     public static KeyMapping useDenaryActivePowerKeybind;
 
     public static void register() {
+        if (Platform.isModLoaded("extrakeybinds")) return;
         useTernaryActivePowerKeybind = registerKeybind("key.origins.ternary_active", "ternary");
         useQuaternaryActivePowerKeybind = registerKeybind("key.origins.quaternary_active", "quaternary");
         useQuinaryActivePowerKeybind = registerKeybind("key.origins.quinary_active", "quinary");

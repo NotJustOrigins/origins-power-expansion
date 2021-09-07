@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[35,)"
-#issueTrackerURL = ""
-license = "All Rights Reserved"
+issueTrackerURL = "https://github.com/Jarva/origins-power-expansion/issues"
+license = "MIT"
 
 [[mods]]
 modId = "origins_power_expansion"
@@ -9,9 +9,9 @@ version = "${version}"
 displayName = "Origins Power Expansion"
 authors = "Jarva"
 description = '''
-Additional Powers and Actions for Origins
+An expansion library for the power and action system within Origins
 '''
-#logoFile = ""
+logoFile = "icon.png"
 
 [[dependencies.origins_power_expansion]]
 modId = "forge"

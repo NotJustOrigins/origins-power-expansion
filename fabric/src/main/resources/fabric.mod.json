@@ -2,16 +2,17 @@
   "schemaVersion": 1,
   "id": "origins_power_expansion",
   "version": "${version}",
-  "name": "Not Just Origins",
-  "description": "A test Origin. Example addon for the Architectury Origins mod.",
+  "name": "Origins Power Expansion",
+  "description": "An expansion library for the power and action system within Origins",
   "authors": [
     "Jarva"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/Jarva/origins-power-expansion",
+    "sources": "https://github.com/Jarva/origins-power-expansion",
+    "issues": "https://github.com/Jarva/origins-power-expansion/issues"
   },
-  "license": "All Rights Reserved",
+  "license": "MIT",
   "icon": "assets/origins_power_expansion/icon.png",
   "environment": "*",
   "entrypoints": {

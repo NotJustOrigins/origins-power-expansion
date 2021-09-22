@@ -2,7 +2,7 @@ package me.jarva.origins_power_expansion;
 
 import me.jarva.origins_power_expansion.registry.ActionRegistry;
 import me.jarva.origins_power_expansion.registry.PowerRegistry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,7 +16,7 @@ public class OriginsPowerExpansion {
         ActionRegistry.register();
     }
 
-    public static ResourceLocation identifier(String path) {
-        return new ResourceLocation("ope", path);
+    public static Identifier identifier(String path) {
+        return new Identifier("ope", path);
     }
 }

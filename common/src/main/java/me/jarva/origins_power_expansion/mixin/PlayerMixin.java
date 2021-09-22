@@ -2,19 +2,19 @@ package me.jarva.origins_power_expansion.mixin;
 
 import io.github.apace100.origins.component.OriginComponent;
 import me.jarva.origins_power_expansion.powers.CustomFootstepPower;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
 import java.util.List;
 
-@Mixin(Player.class)
+@Mixin(PlayerEntity.class)
 public abstract class PlayerMixin extends Entity {
-    protected PlayerMixin(EntityType<?> player, Level level) {
+    protected PlayerMixin(EntityType<?> player, World level) {
         super(player, level);
         throw new AssertionError("PlayerMixin constructor called.");
     }

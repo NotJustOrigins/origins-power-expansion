@@ -7,10 +7,9 @@ import io.github.apace100.origins.util.SerializableData;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
 import me.jarva.origins_power_expansion.registry.PowerRegistry;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobType;
-import net.minecraft.world.entity.player.Player;
-
+import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,9 +17,9 @@ import java.util.List;
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class MobsIgnorePower extends Power {
     private final HashSet<EntityType<?>> mobTypes = new HashSet<>();
-    private final HashSet<MobType> mobGroups = new HashSet<>();
+    private final HashSet<EntityGroup> mobGroups = new HashSet<>();
 
-    public MobsIgnorePower(PowerType<?> type, Player player) {
+    public MobsIgnorePower(PowerType<?> type, PlayerEntity player) {
         super(type, player);
     }
 
@@ -28,7 +27,7 @@ public class MobsIgnorePower extends Power {
         return mobTypes;
     }
 
-    public HashSet<MobType> getMobGroups() {
+    public HashSet<EntityGroup> getMobGroups() {
         return mobGroups;
     }
 
@@ -49,7 +48,7 @@ public class MobsIgnorePower extends Power {
                     }
                     power.getMobTypes().addAll(mobs);
 
-                    List<MobType> groups = data.isPresent("groups") ? data.get("groups") : new ArrayList<MobType>();
+                    List<EntityGroup> groups = data.isPresent("groups") ? data.get("groups") : new ArrayList<EntityGroup>();
                     if (data.isPresent("group")) {
                         groups.add(data.get("group"));
                     }

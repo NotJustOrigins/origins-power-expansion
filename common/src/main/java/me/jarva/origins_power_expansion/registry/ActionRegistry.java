@@ -5,7 +5,7 @@ import io.github.apace100.origins.power.factory.action.ActionFactory;
 import me.jarva.origins_power_expansion.actions.entity.AreaOfEffectAction;
 import me.jarva.origins_power_expansion.actions.entity.EnderChestAction;
 import me.jarva.origins_power_expansion.actions.entity.FireProjectileAction;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.entity.Entity;
 
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class ActionRegistry {

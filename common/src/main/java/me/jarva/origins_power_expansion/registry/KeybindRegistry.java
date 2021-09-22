@@ -1,22 +1,22 @@
 package me.jarva.origins_power_expansion.registry;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import io.github.apace100.origins.Origins;
 import io.github.apace100.origins.OriginsClient;
 import me.shedaniel.architectury.platform.Platform;
 import me.shedaniel.architectury.registry.KeyBindings;
-import net.minecraft.client.KeyMapping;
+import net.minecraft.client.options.KeyBinding;
+import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 public class KeybindRegistry {
-    public static KeyMapping useTernaryActivePowerKeybind;
-    public static KeyMapping useQuaternaryActivePowerKeybind;
-    public static KeyMapping useQuinaryActivePowerKeybind;
-    public static KeyMapping useSenaryActivePowerKeybind;
-    public static KeyMapping useSeptenaryActivePowerKeybind;
-    public static KeyMapping useOctonaryActivePowerKeybind;
-    public static KeyMapping useNonaryActivePowerKeybind;
-    public static KeyMapping useDenaryActivePowerKeybind;
+    public static KeyBinding useTernaryActivePowerKeybind;
+    public static KeyBinding useQuaternaryActivePowerKeybind;
+    public static KeyBinding useQuinaryActivePowerKeybind;
+    public static KeyBinding useSenaryActivePowerKeybind;
+    public static KeyBinding useSeptenaryActivePowerKeybind;
+    public static KeyBinding useOctonaryActivePowerKeybind;
+    public static KeyBinding useNonaryActivePowerKeybind;
+    public static KeyBinding useDenaryActivePowerKeybind;
 
     public static void register() {
         if (Platform.isModLoaded("extrakeybinds")) return;
@@ -30,8 +30,8 @@ public class KeybindRegistry {
         useDenaryActivePowerKeybind = registerKeybind("key.origins.denary_active", "denary");
     }
 
-    private static KeyMapping registerKeybind(String primaryKeyId, String secondaryKeyId) {
-        KeyMapping keyMapping = new KeyMapping(primaryKeyId, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category." + Origins.MODID);
+    private static KeyBinding registerKeybind(String primaryKeyId, String secondaryKeyId) {
+        KeyBinding keyMapping = new KeyBinding(primaryKeyId, InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category." + Origins.MODID);
         OriginsClient.registerPowerKeybinding(primaryKeyId, keyMapping);
         OriginsClient.registerPowerKeybinding(secondaryKeyId, keyMapping);
         KeyBindings.registerKeyBinding(keyMapping);

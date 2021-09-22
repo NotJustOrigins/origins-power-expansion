@@ -4,10 +4,9 @@ import io.github.apace100.origins.power.factory.action.ActionFactory;
 import io.github.apace100.origins.util.SerializableData;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.phys.AABB;
-
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.util.math.Box;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -31,10 +30,10 @@ public class AreaOfEffectAction {
         double radius = data.get("radius");
         double diameter = radius * 2;
 
-        for (LivingEntity check : entity.level.getEntitiesOfClass(LivingEntity.class, AABB.ofSize(diameter, diameter, diameter).move(entity.getPosition(1F)))) {
+        for (LivingEntity check : entity.world.getNonSpectatingEntities(LivingEntity.class, Box.ofSize(diameter, diameter, diameter).offset(entity.getPosition(1F)))) {
             if (check == entity && !includeTarget)
                 continue;
-            if (predicate.test(check) && check.distanceToSqr(entity) < radius * radius)
+            if (predicate.test(check) && check.squaredDistanceTo(entity) < radius * radius)
                 actions.forEach(x -> x.accept(check));
         }
     }

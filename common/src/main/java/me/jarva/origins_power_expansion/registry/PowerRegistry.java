@@ -5,15 +5,14 @@ import io.github.apace100.origins.power.factory.PowerFactory;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.powers.CustomFootstepPower;
 import me.jarva.origins_power_expansion.powers.MobsIgnorePower;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobType;
-
+import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EntityType;
 import java.util.List;
 
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class PowerRegistry {
     public static final SerializableDataType<List<EntityType<?>>> ENTITY_TYPES;
-    public static final SerializableDataType<List<MobType>> ENTITY_GROUPS;
+    public static final SerializableDataType<List<EntityGroup>> ENTITY_GROUPS;
 
     static {
         ENTITY_TYPES = SerializableDataType.list(SerializableDataType.ENTITY_TYPE);

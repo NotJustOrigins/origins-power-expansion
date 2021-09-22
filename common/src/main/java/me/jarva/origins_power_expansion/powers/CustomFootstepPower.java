@@ -6,9 +6,9 @@ import io.github.apace100.origins.power.factory.PowerFactory;
 import io.github.apace100.origins.util.SerializableData;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundEvent;
 
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class CustomFootstepPower extends Power {
@@ -31,7 +31,7 @@ public class CustomFootstepPower extends Power {
             .allowCondition();
     }
 
-    public CustomFootstepPower(PowerType<?> type, Player player, Boolean muted, SoundEvent footstepSound, float volume, float pitch){
+    public CustomFootstepPower(PowerType<?> type, PlayerEntity player, Boolean muted, SoundEvent footstepSound, float volume, float pitch){
         super(type, player);
         this.muted = muted;
         this.footstepSound = footstepSound;

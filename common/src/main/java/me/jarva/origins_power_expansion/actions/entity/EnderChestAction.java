@@ -3,26 +3,26 @@ package me.jarva.origins_power_expansion.actions.entity;
 import io.github.apace100.origins.power.factory.action.ActionFactory;
 import io.github.apace100.origins.util.SerializableData;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.stats.Stats;
-import net.minecraft.world.SimpleMenuProvider;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.inventory.PlayerEnderChestContainer;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EnderChestInventory;
+import net.minecraft.screen.GenericContainerScreenHandler;
+import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+import net.minecraft.stat.Stats;
+import net.minecraft.text.TranslatableText;
 
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class EnderChestAction {
     public static void action(SerializableData.Instance data, Entity entity) {
-        if (!(entity instanceof Player)) return;
+        if (!(entity instanceof PlayerEntity)) return;
 
-        Player player = (Player) entity;
-        PlayerEnderChestContainer enderChestContainer = player.getEnderChestInventory();
+        PlayerEntity player = (PlayerEntity) entity;
+        EnderChestInventory enderChestContainer = player.getEnderChestInventory();
 
-        player.openMenu(new SimpleMenuProvider((i, inventory, playerx) ->
-                ChestMenu.threeRows(i, inventory, enderChestContainer), new TranslatableComponent("container.enderchest")));
+        player.openHandledScreen(new SimpleNamedScreenHandlerFactory((i, inventory, playerx) ->
+                GenericContainerScreenHandler.createGeneric9x3(i, inventory, enderChestContainer), new TranslatableText("container.enderchest")));
 
-        player.awardStat(Stats.OPEN_ENDERCHEST);
+        player.incrementStat(Stats.OPEN_ENDERCHEST);
     }
 
     public static ActionFactory<Entity> getFactory() {

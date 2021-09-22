@@ -30,7 +30,7 @@ public class AreaOfEffectAction {
         double radius = data.get("radius");
         double diameter = radius * 2;
 
-        for (LivingEntity check : entity.world.getNonSpectatingEntities(LivingEntity.class, Box.ofSize(diameter, diameter, diameter).offset(entity.getPosition(1F)))) {
+        for (LivingEntity check : entity.world.getNonSpectatingEntities(LivingEntity.class, Box.method_30048(diameter, diameter, diameter).offset(entity.method_30950(1F)))) {
             if (check == entity && !includeTarget)
                 continue;
             if (predicate.test(check) && check.squaredDistanceTo(entity) < radius * radius)

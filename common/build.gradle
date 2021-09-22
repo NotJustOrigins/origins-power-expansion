@@ -9,7 +9,6 @@ dependencies {
     modApi group: 'com.github.EdwinMindcraft.origins-architectury', name: 'Origins-1.16.5', version: "0.7.3.9"
 
     minecraft("com.mojang:minecraft:${rootProject.architectury.minecraft}")
-    loom.officialMojangMappings()
 }
 
 architectury {

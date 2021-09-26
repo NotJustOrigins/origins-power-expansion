@@ -1,0 +1,11 @@
+{
+  "powers": [
+    "ope:action_on_equip"
+  ],
+  "icon": {
+    "item": "minecraft:stick"
+  },
+  "impact": 1,
+  "name": "Tester",
+  "description": "A testing origin for testing things"
+}

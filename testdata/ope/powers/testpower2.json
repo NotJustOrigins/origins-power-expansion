@@ -1,0 +1,10 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "ope:crafting_table"
+  },
+  "cooldown": 20,
+  "hud_render": {
+    "should_render": true
+  }
+}

@@ -5,9 +5,11 @@ import io.github.apace100.origins.power.factory.action.ActionFactory;
 import io.github.apace100.origins.util.SerializableData;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
+import me.jarva.origins_power_expansion.util.PlayerReach;
 import net.minecraft.block.pattern.CachedBlockPosition;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
@@ -26,7 +28,8 @@ import java.util.function.Predicate;
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class RaycastAction {
     public static void action(SerializableData.Instance data, Entity entity) {
-        double distance = data.isPresent("distance") ? data.get("distance") : 4.5D;
+        if (!(entity instanceof PlayerEntity)) return;
+        double distance = data.isPresent("distance") ? data.get("distance") : PlayerReach.getReach((PlayerEntity) entity);
         Vec3d eyePosition = entity.getCameraPosVec(0);
         Vec3d lookVector = entity.getRotationVec(0);
         Vec3d traceEnd = eyePosition.add(lookVector.x * distance, lookVector.y * distance, lookVector.z * distance);

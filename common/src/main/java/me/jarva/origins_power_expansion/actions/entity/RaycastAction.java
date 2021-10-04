@@ -5,7 +5,6 @@ import io.github.apace100.origins.power.factory.action.ActionFactory;
 import io.github.apace100.origins.util.SerializableData;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
-import net.minecraft.block.Block;
 import net.minecraft.block.pattern.CachedBlockPosition;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -17,12 +16,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.Triple;
 
-import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -33,13 +30,16 @@ public class RaycastAction {
         Vec3d eyePosition = entity.getCameraPosVec(0);
         Vec3d lookVector = entity.getRotationVec(0);
         Vec3d traceEnd = eyePosition.add(lookVector.x * distance, lookVector.y * distance, lookVector.z * distance);
+        Box box = entity.getBoundingBox().stretch(lookVector).expand(1.0D);
 
         RaycastContext context = new RaycastContext(eyePosition, traceEnd, RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.ANY, entity);
         BlockHitResult blockHitResult = entity.world.raycast(context);
-        EntityHitResult entityHitResult = ProjectileUtil.raycast(entity, eyePosition, traceEnd, Box.method_29968(eyePosition), (traceEntity) -> !traceEntity.isSpectator() && traceEntity.collides(), distance);
+
+        double reach = blockHitResult != null ? blockHitResult.getBlockPos().getSquaredDistance(eyePosition.x, eyePosition.y, eyePosition.z, true) : distance * distance;
+        EntityHitResult entityHitResult = ProjectileUtil.raycast(entity, eyePosition, traceEnd, box, (traceEntity) -> !traceEntity.isSpectator() && traceEntity.collides(), reach);
 
         HitResult.Type blockHitResultType = blockHitResult.getType();
-        HitResult.Type entityHitResultType = Objects.requireNonNull(entityHitResult).getType();
+        HitResult.Type entityHitResultType = (entityHitResult != null) ? entityHitResult.getType() : null;
         if (blockHitResultType == HitResult.Type.MISS && entityHitResultType == HitResult.Type.MISS) return;
 
         if (blockHitResultType == HitResult.Type.BLOCK) {

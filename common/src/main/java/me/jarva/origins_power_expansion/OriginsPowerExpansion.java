@@ -1,6 +1,7 @@
 package me.jarva.origins_power_expansion;
 
-import me.jarva.origins_power_expansion.registry.ActionRegistry;
+import me.jarva.origins_power_expansion.registry.actions.BlockActionRegistry;
+import me.jarva.origins_power_expansion.registry.actions.EntityActionRegistry;
 import me.jarva.origins_power_expansion.registry.PowerRegistry;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +14,8 @@ public class OriginsPowerExpansion {
     
     public static void init() {
         PowerRegistry.register();
-        ActionRegistry.register();
+        EntityActionRegistry.register();
+        BlockActionRegistry.register();
     }
 
     public static Identifier identifier(String path) {

@@ -15,6 +15,19 @@ architectury {
     common()
 }
 
+processResources {
+    def environment = System.getenv("ENVIRONMENT");
+    if (environment != "production") {
+        from(rootProject.rootDir.absolutePath + "/testdata") { into 'data' }
+    }
+}
+
+tasks.named("processResources") {
+    inputs.property("environment") {
+        System.getenv("ENVIRONMENT") || null
+    }
+}
+
 java {
     withSourcesJar()
 }

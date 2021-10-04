@@ -1,0 +1,17 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "ope:raycast",
+    "block_action": {
+      "type": "ope:bonemeal"
+    },
+    "target_action": {
+      "type": "origins:set_on_fire",
+      "duration": 8
+    }
+  },
+  "cooldown": 20,
+  "hud_render": {
+    "should_render": true
+  }
+}

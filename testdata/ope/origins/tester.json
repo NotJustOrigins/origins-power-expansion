@@ -1,6 +1,6 @@
 {
   "powers": [
-    "ope:action_on_equip"
+    "ope:testpower1"
   ],
   "icon": {
     "item": "minecraft:stick"

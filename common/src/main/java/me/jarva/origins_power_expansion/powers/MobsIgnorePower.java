@@ -6,15 +6,11 @@ import io.github.apace100.origins.power.factory.PowerFactory;
 import io.github.apace100.origins.util.SerializableData;
 import io.github.apace100.origins.util.SerializableDataType;
 import me.jarva.origins_power_expansion.OriginsPowerExpansion;
-import me.jarva.origins_power_expansion.registry.PowerRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import java.util.ArrayList;
+
 import java.util.HashSet;
-import java.util.List;
 import java.util.function.Predicate;
 
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})

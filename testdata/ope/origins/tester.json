@@ -1,6 +1,7 @@
 {
   "powers": [
-    "ope:testpower1"
+    "ope:testpower2",
+    "ope:testpower3"
   ],
   "icon": {
     "item": "minecraft:stick"

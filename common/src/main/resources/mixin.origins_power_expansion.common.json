@@ -4,8 +4,10 @@
   "package": "me.jarva.origins_power_expansion.mixin",
   "mixins": [
     "EnchantmentHelperMixin",
+    "ItemPredicateMixin",
     "ItemStackMixin",
     "MobEntityMixin",
+    "PlayerInventoryMixin",
     "PlayerMixin"
   ]
 }

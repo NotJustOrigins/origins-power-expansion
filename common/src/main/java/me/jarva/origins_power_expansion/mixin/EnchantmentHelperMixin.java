@@ -1,27 +1,33 @@
 package me.jarva.origins_power_expansion.mixin;
 
 import io.github.apace100.origins.component.OriginComponent;
-import me.jarva.origins_power_expansion.access.ItemStackEntity;
 import me.jarva.origins_power_expansion.powers.ModifyEnchantmentLevelPower;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.ListTag;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
-    @Inject(method = "getLevel", at = @At("RETURN"), cancellable = true)
-    private static void getLevel(Enchantment enchantment, ItemStack stack, CallbackInfoReturnable<Integer> cir) {
-        ItemStackEntity itemStack = (ItemStackEntity) (Object) stack;
-        if (itemStack != null && itemStack.getEntity() instanceof PlayerEntity) {
-            int newEnchantLevel = (int) OriginComponent.modify(itemStack.getEntity(), ModifyEnchantmentLevelPower.class, cir.getReturnValue(), power -> power.doesApply(enchantment));
-            cir.setReturnValue(newEnchantLevel);
-        }
+    @Redirect(method = "forEachEnchantment(Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;Lnet/minecraft/item/ItemStack;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isEmpty()Z"))
+    private static boolean isEmpty(ItemStack self) {
+        return false;
+    }
+
+    @Redirect(method = "forEachEnchantment", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getEnchantments()Lnet/minecraft/nbt/ListTag;"))
+    private static ListTag getEnchantmentsForEachEnchantment(ItemStack self) {
+        return ModifyEnchantmentLevelPower.getEnchantments(self);
+    }
+
+    @Redirect(method = "getLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getEnchantments()Lnet/minecraft/nbt/ListTag;"))
+    private static ListTag getEnchantmentsGetLevel(ItemStack self) {
+        return ModifyEnchantmentLevelPower.getEnchantments(self);
     }
 
     @Inject(method ="getEquipmentLevel", at = @At("RETURN"), cancellable = true)

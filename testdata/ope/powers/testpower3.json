@@ -1,8 +1,19 @@
 {
-  "type": "ope:modify_enchantment_level",
-  "enchantment":  "fire_aspect",
-  "modifier": {
-    "operation": "addition",
-    "value": 1
+  "type": "origins:multiple",
+  "smite": {
+    "type": "ope:modify_enchantment_level",
+    "enchantment":  "thorns",
+    "modifier": {
+      "operation": "addition",
+      "value": 5
+    }
+  },
+  "frost_walker": {
+    "type": "ope:modify_enchantment_level",
+    "enchantment":  "infinity",
+    "modifier": {
+      "operation": "addition",
+      "value": 3
+    }
   }
 }

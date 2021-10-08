@@ -47,7 +47,7 @@ Type ID: `ope:modify_enchantment_level`
 ```json
 {
     "type": "ope:modify_enchantment_level",
-    "enchantment":  "infinity",
+    "enchantment": "infinity",
     "modifier": {
       "operation": "addition",
       "value": 1

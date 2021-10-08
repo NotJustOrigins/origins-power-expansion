@@ -36,7 +36,7 @@ Type ID: `ope:custom_footstep`
 ```json
 {
     "type": "ope:custom_footstep",
-    "sound": ""
+    "sound": "minecraft:entity.iron_golem.step"
 }
 ```
 This power would play the iron golem footstep sound on every step.

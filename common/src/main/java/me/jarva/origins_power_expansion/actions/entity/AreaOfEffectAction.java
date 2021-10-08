@@ -14,17 +14,17 @@ import java.util.function.Predicate;
 
 /** md
 ---
-title: Fire Projectile (Entity Action)
+title: Area of Effect (Entity Action)
 date: 2021-10-08
 ---
 
-# Fire Projectile
+# Area of Effect
 
 [Entity Action](../)
 
-Fires a projectile from the entity.
+Fires an action on entities within the area of effect.
 
-Type ID: `ope:fire_projectile`
+Type ID: `ope:area_of_effect`
 
 ### Fields
 

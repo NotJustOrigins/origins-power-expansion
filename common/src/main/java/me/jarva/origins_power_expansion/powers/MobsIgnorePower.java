@@ -13,6 +13,37 @@ import net.minecraft.entity.player.PlayerEntity;
 import java.util.HashSet;
 import java.util.function.Predicate;
 
+/** md
+---
+title: Mob Ignore (Power Type)
+date: 2021-10-08
+---
+# Mob Ignore
+
+[Power Type](../)
+
+Makes mobs ignore the power holder.
+
+Type ID: `ope:mob_ignore`
+
+### Fields
+
+{{build_field_table(
+    "mob_condition|entity_conditions||Which entities should ignore the player"
+)}}
+
+### Example
+```json
+{
+    "type": "ope:mob_ignore",
+    "mob_condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:skeleton"
+    }
+}
+```
+This power cause skeletons to ignore the player.
+ */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class MobsIgnorePower extends Power {
     private final HashSet<EntityType<?>> mobTypes = new HashSet<>();

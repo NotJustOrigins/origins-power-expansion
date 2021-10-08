@@ -23,6 +23,39 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+/** md
+---
+title: Modify Enchantment Level (Power Type)
+date: 2021-10-08
+---
+# Modify Enchantment Level
+
+[Power Type](../)
+
+Modifies the entities enchantment levels.
+
+Type ID: `ope:modify_enchantment_level`
+
+### Fields
+
+{{build_field_table(
+    "enchantment|string||ID of the enchantment to modify",
+    "modifier|attribute_modifier||This modifier will be applied to the enchantment."
+)}}
+
+### Example
+```json
+{
+    "type": "ope:modify_enchantment_level",
+    "enchantment":  "infinity",
+    "modifier": {
+      "operation": "addition",
+      "value": 1
+    }
+}
+```
+This would cause the holder to have the infinity enchantment permanently.
+ */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class ModifyEnchantmentLevelPower extends ValueModifyingPower {
     private static final ConcurrentHashMap<String, ConcurrentHashMap<ListTag, ListTag>> entityItemEnchants = new ConcurrentHashMap<>();

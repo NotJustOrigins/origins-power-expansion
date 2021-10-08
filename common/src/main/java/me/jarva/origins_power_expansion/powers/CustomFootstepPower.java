@@ -10,6 +10,37 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 
+/** md
+---
+title: Custom Footstep (Power Type)
+date: 2021-10-08
+---
+# Custom Footstep
+
+[Power Type](../)
+
+Sets a sound to play on each entity footstep.
+
+Type ID: `ope:custom_footstep`
+
+### Fields
+
+{{build_field_table(
+    "muted|boolean|false|Mutes default footstep sounds",
+    "sound|string|_optional_|Sound to play on each footstep",
+    "volume|float|1.0|Volume of the sound",
+    "pitch|float|1.0|Pitch of the sound"
+)}}
+
+### Example
+```json
+{
+    "type": "ope:custom_footstep",
+    "sound": ""
+}
+```
+This power would play the iron golem footstep sound on every step.
+ */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class CustomFootstepPower extends Power {
     private final SoundEvent footstepSound;

@@ -1,0 +1,41 @@
+site_name: Origins Power Expansion Documentation
+nav:
+    - Home: index.md
+    - Types:
+      - Power Types: power_types.md
+    - Actions:
+      - Block Actions: block_actions.md
+      - Entity Actions: entity_actions.md
+theme: readthedocs
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      use_pygments: true
+plugins:
+  - search:
+  - simple:
+      include_extensions: []
+      semiliterate:
+        - directory_pattern: powers
+          pattern: ([A-z]+)Power\.java$
+          destination: \g<1>.md
+          destination_directory: /power_types
+          extract:
+          - start: ^\s*/\*+\W?md\b
+            stop: ^\s*\*\/\s*$
+        - directory_pattern: actions/block
+          pattern: ([A-z]+)\.java$
+          destination: \g<1>.md
+          destination_directory: /block_actions
+          extract:
+          - start: ^\s*/\*+\W?md\b
+            stop: ^\s*\*\/\s*$
+        - directory_pattern: actions/entity
+          pattern: ([A-z]+)\.java$
+          destination: \g<1>.md
+          destination_directory: /entity_actions
+          extract:
+          - start: ^\s*/\*+\W?md\b
+            stop: ^\s*\*\/\s*$
+  - macros:
+      module_name: docs/helpers

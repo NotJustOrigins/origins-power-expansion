@@ -25,6 +25,45 @@ import org.apache.commons.lang3.tuple.Triple;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+/** md
+---
+title: Raycast (Entity Action)
+date: 2021-10-08
+---
+
+# Raycast
+
+[Entity Action](../)
+
+Fires a projectile from the entity.
+
+Type ID: `ope:raycast`
+
+### Fields
+
+{{build_field_table(
+"distance|data_types/integer|Player Reach|The distance for the raycast to travel.",
+"block_action|block_actions|_optional_|Action to fire when a valid block is hit.",
+"block_condition|block_conditions|_optional_|Condition to compare to the block hit.",
+"target_action|entity_actions|_optional_|Action to fire when a valid entity is hit.",
+"target_condition|entity_conditions|_optional_|Condition to compare to the entity hit.",
+"self_action|entity_actions|_optional_|Action to fire on yourself when the raycast hits anything."
+)}}
+
+### Example
+```json
+"entity_action": {
+    "type": "ope:raycast",
+    "block_action": {
+        "type": "ope:bonemeal"
+    },
+    "target_action": {
+        "type": "origins:set_on_fire",
+         "duration": 8
+    }
+}
+```
+ */
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class RaycastAction {
     public static void action(SerializableData.Instance data, Entity entity) {

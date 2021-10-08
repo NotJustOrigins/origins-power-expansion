@@ -26,10 +26,10 @@ Type ID: `ope:custom_footstep`
 ### Fields
 
 {{build_field_table(
-    "muted|boolean|false|Mutes default footstep sounds",
-    "sound|string|_optional_|Sound to play on each footstep",
-    "volume|float|1.0|Volume of the sound",
-    "pitch|float|1.0|Pitch of the sound"
+    "muted|data_types/boolean|false|Mutes default footstep sounds",
+    "sound|data_types/identifier|_optional_|Sound to play on each footstep",
+    "volume|data_types/float|1.0|Volume of the sound",
+    "pitch|data_types/float|1.0|Pitch of the sound"
 )}}
 
 ### Example

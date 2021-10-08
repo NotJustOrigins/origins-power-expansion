@@ -4,7 +4,7 @@ def define_env(env):
     @env.macro
     def get_data_type(data_type):
         link = "{}{}/".format(env.variables.origins_docs, data_type)
-        return "[{}]({})".format(data_type.capitalize(), link)
+        return "[{}]({})".format(data_type.split("/")[-1].replace('_', ' ').title(), link)
 
     def build_field_row(field, type, default, description):
         return "`{}`|{}|{}|{}".format(field.lower(), get_data_type(type), default, description)
@@ -16,3 +16,7 @@ def define_env(env):
         return """Field|Type|Default|Description
         -|-|-|-
         {}""".format(formatted_rows)
+
+    @env.macro
+    def get_origins_link(link):
+        return "{}{}/".format(env.variables.origins_docs, link)

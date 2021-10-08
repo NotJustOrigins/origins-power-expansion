@@ -39,8 +39,8 @@ Type ID: `ope:modify_enchantment_level`
 ### Fields
 
 {{build_field_table(
-    "enchantment|string||ID of the enchantment to modify",
-    "modifier|attribute_modifier||This modifier will be applied to the enchantment."
+    "enchantment|data_types/string||ID of the enchantment to modify",
+    "modifier|data_types/attribute_modifier||This modifier will be applied to the enchantment."
 )}}
 
 ### Example

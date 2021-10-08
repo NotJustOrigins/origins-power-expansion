@@ -12,6 +12,27 @@ import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
+/** md
+---
+title: Ender Chest (Entity Action)
+date: 2021-10-08
+---
+
+# Ender Chest
+
+[Entity Action](../)
+
+Opens an ender chest for the entity.
+
+Type ID: `ope:ender_chest`
+
+### Example
+```json
+"entity_action": {
+    "type": "ope:ender_chest"
+}
+```
+*/
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class EnderChestAction {
     private static final Text TITLE = new TranslatableText("container.enderchest");

@@ -10,7 +10,9 @@ a `type` field in the JSON. Which type a power is defines which other fields it 
 
 Unless stated otherwise, each power type supports a `condition` field with an [entity condition](https://origins.readthedocs.io/en/0.7.3/entity_conditions/). See [Power JSON](https://origins.readthedocs.io/en/0.7.3/power_json/) for more details." - Origins Documentation
 
-## Powers
+## Regular types
 - [Custom Footstep](CustomFootstep)
 - [Mob Ignore](MobsIgnore)
+
+## Modifying types
 - [Modify Enchantment Level](ModifyEnchantmentLevel)

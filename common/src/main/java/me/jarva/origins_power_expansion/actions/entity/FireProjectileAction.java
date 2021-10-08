@@ -14,6 +14,50 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
+/** md
+---
+title: Fire Projectile (Entity Action)
+date: 2021-10-08
+---
+
+# Fire Projectile
+
+[Entity Action](../)
+
+Fires a projectile from the entity.
+
+Type ID: `ope:fire_projectile`
+
+### Fields
+
+{{build_field_table(
+    "entity_type|data_types/identifier||The ID of the entity type that will be fired.",
+    "cooldown|data_types/integer||The number of ticks the player has to wait between uses of this power.",
+    "hud_render|data_types/hud_render||Specifies how and if a cooldown bar is rendered.",
+    "count|data_types/integer|1|The amount of projectiles to fire each use.",
+    "speed|data_types/float|1.5|The speed applied to the fired projectile.",
+    "divergence|data_types/float|1.0|How much each projectile fired is affected by random spread.",
+    "sound|data_types/identifier|_optional_|If set, the sound with this ID will be played when the power is used.",
+    "tag|data_types/string|_optional_|NBT data of the entity."
+)}}
+
+### Example
+```json
+"entity_action": {
+    "type": "ope:fire_projectile",
+    "entity_type": "minecraft:arrow",
+    "cooldown": 2,
+    "hud_render": {
+        "should_render": false
+    },
+    "tag": "{pickup:0b}",
+    "key": {
+        "key": "key.attack",
+        "continuous": true
+    }
+}
+```
+*/
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class FireProjectileAction {
     public static void action(SerializableData.Instance data, Entity entity) {

@@ -12,6 +12,43 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+/** md
+---
+title: Fire Projectile (Entity Action)
+date: 2021-10-08
+---
+
+# Fire Projectile
+
+[Entity Action](../)
+
+Fires a projectile from the entity.
+
+Type ID: `ope:fire_projectile`
+
+### Fields
+
+{{build_field_table(
+    "radius|data_types/integer|16|The block radius to apply to the effects in.",
+    "action|entity_actions||The action to apply to every entity within the radius.",
+    "condition|entity_conditions|_optional_|The condition for whether to include an entity for the action.",
+    "include_target|data_types/boolean|false|Whether to include the entity themselves when applying the action."
+)}}
+
+### Example
+```json
+"entity_action": {
+    "type": "ope:area_of_effect",
+    "radius": 32,
+    "action": {
+        "type": "origins:set_on_fire",
+        "duration": 8
+    },
+    "include_target": true
+}
+```
+This action will set everyone within 32 blocks of the entity on fire, including the entity themselves.
+*/
 @SuppressWarnings({"unchecked", "UnstableApiUsage", "deprecation"})
 public class AreaOfEffectAction {
     public static void action(SerializableData.Instance data, Entity entity) {

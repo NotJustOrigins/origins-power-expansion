@@ -24,14 +24,14 @@ plugins:
           - start: ^\s*/\*+\W?md\b
             stop: ^\s*\*\/\s*$
         - directory_pattern: actions/block
-          pattern: ([A-z]+)\.java$
+          pattern: ([A-z]+)Action\.java$
           destination: \g<1>.md
           destination_directory: /block_actions
           extract:
           - start: ^\s*/\*+\W?md\b
             stop: ^\s*\*\/\s*$
         - directory_pattern: actions/entity
-          pattern: ([A-z]+)\.java$
+          pattern: ([A-z]+)Action\.java$
           destination: \g<1>.md
           destination_directory: /entity_actions
           extract:

@@ -9,5 +9,8 @@
     "MobEntityMixin",
     "PlayerInventoryMixin",
     "PlayerMixin"
+  ],
+  "client": [
+    "EntityRendererMixin"
   ]
 }

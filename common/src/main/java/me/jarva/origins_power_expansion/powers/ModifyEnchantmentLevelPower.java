@@ -21,7 +21,6 @@ import net.minecraft.util.registry.Registry;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 /** md
 ---
@@ -95,7 +94,7 @@ public class ModifyEnchantmentLevelPower extends ValueModifyingPower {
         if (oc == null) return enchants;
 
         ListTag newEnchants = enchants.copy();
-        List<ModifyEnchantmentLevelPower> powers = oc.getPowers(ModifyEnchantmentLevelPower.class).stream().collect(Collectors.toList());
+        List<ModifyEnchantmentLevelPower> powers = oc.getPowers(ModifyEnchantmentLevelPower.class);
 
         for (ModifyEnchantmentLevelPower power : powers) {
             OriginsPowerExpansion.LOGGER.info("POWER FOR EACH {}", newEnchants);

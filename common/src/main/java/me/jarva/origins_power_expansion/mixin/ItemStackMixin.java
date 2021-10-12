@@ -29,7 +29,7 @@ public class ItemStackMixin implements ItemStackEntity {
 
     @Inject(method = "copy", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setCooldown(I)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
     private void copyEntity(CallbackInfoReturnable<ItemStack> cir, ItemStack itemStack) {
-        if (this.entity != null) {
+        if (this.getEntity() != null) {
             ((ItemStackEntity) (Object) itemStack).setEntity(this.getEntity());
         }
     }

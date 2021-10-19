@@ -6,9 +6,11 @@
     "EnchantmentHelperMixin",
     "ItemPredicateMixin",
     "ItemStackMixin",
+    "LivingEntityMixin",
     "MobEntityMixin",
     "PlayerInventoryMixin",
-    "PlayerMixin"
+    "PlayerEntityMixin",
+    "StatusEffectInstanceMixin"
   ],
   "client": [
     "EntityRendererMixin"

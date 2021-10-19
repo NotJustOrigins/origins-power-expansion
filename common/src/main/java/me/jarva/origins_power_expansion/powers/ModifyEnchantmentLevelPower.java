@@ -85,7 +85,6 @@ public class ModifyEnchantmentLevelPower extends ValueModifyingPower {
     }
 
     public static ListTag generateEnchantments(ListTag enchants, ItemStack self) {
-        OriginsPowerExpansion.LOGGER.info("Generating Enchants {} {}", self, entityItemEnchants);
         Entity entity = ((ItemStackEntity) (Object) self).getEntity();
 
         if (!(entity instanceof PlayerEntity)) return enchants;
@@ -97,18 +96,13 @@ public class ModifyEnchantmentLevelPower extends ValueModifyingPower {
         List<ModifyEnchantmentLevelPower> powers = oc.getPowers(ModifyEnchantmentLevelPower.class);
 
         for (ModifyEnchantmentLevelPower power : powers) {
-            OriginsPowerExpansion.LOGGER.info("POWER FOR EACH {}", newEnchants);
             Identifier id = Registry.ENCHANTMENT.getId(power.getEnchantment());
             Optional<Integer> idx = findEnchantIndex(id, newEnchants);
-            OriginsPowerExpansion.LOGGER.info("FOUND ENCHANT INDEX {}", idx);
             if (idx.isPresent()) {
                 CompoundTag existingEnchant = newEnchants.getCompound(idx.get());
                 int lvl = existingEnchant.getInt("lvl");
-                OriginsPowerExpansion.LOGGER.info("FOUND ENCHANT LVL {}", lvl);
                 int newLvl = (int) OriginComponent.modify(entity, ModifyEnchantmentLevelPower.class, lvl, powerFilter -> powerFilter.doesApply(power.getEnchantment()));
-                OriginsPowerExpansion.LOGGER.info("NEW LVL {}", newLvl);
                 existingEnchant.putInt("lvl", newLvl);
-                OriginsPowerExpansion.LOGGER.info("SET ENCHANT LVL {}", existingEnchant.getInt("lvl"));
                 newEnchants.setTag(idx.get(), existingEnchant);
             } else {
                 CompoundTag newEnchant = new CompoundTag();
@@ -117,7 +111,6 @@ public class ModifyEnchantmentLevelPower extends ValueModifyingPower {
                 newEnchants.add(newEnchant);
             }
         };
-        OriginsPowerExpansion.LOGGER.info("PROCESSED ENCHANTS {}", newEnchants);
         return newEnchants;
     }
 
@@ -135,7 +128,6 @@ public class ModifyEnchantmentLevelPower extends ValueModifyingPower {
         if (entity == null) return self.getEnchantments();
         ConcurrentHashMap<ListTag, ListTag> itemEnchants = entityItemEnchants.computeIfAbsent(entity.getUuidAsString(), (_uuid) -> new ConcurrentHashMap<>());
         ListTag enchants = itemEnchants.computeIfAbsent(self.getEnchantments(), (tag) -> ModifyEnchantmentLevelPower.generateEnchantments(tag, self));
-        OriginsPowerExpansion.LOGGER.info("Returning Enchants {}", enchants);
         return enchants;
     }
 

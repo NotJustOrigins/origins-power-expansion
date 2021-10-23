@@ -53,7 +53,7 @@ Type ID: `ope:modify_enchantment_level`
     }
 }
 ```
-This would cause the holder to have the infinity enchantment permanently.
+This would cause the holder to have the infinity enchantment permanently. You can use a condition to ensure the held item has fire aspect on it already to amplify existing effects.
  */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class ModifyEnchantmentLevelPower extends ValueModifyingPower {

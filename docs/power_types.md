@@ -13,6 +13,15 @@ Unless stated otherwise, each power type supports a `condition` field with an [e
 ## Regular types
 - [Custom Footstep](CustomFootstep)
 - [Mob Ignore](MobsIgnore)
+- [Aerial Affinity](AerialAffinity)
+
+## Action-related
+- [Action On Equip](ActionOnEquip)
 
 ## Modifying types
 - [Modify Enchantment Level](ModifyEnchantmentLevel)
+- [Modify Status Effect Amplifier](ModifyStatusEffectAmplifier)
+- [Modify Status Effect Duration](ModifyStatusEffectDuration)
+
+## Preventing types
+- [Prevent Label Render](PreventLabelRender)

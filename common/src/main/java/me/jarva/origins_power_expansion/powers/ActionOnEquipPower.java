@@ -16,46 +16,46 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /** md
- ---
- title: Action On Equip (Power Type)
- date: 2021-10-08
- ---
- # Action On Equip
+---
+title: Action On Equip (Power Type)
+date: 2021-10-08
+---
+# Action On Equip
 
- [Power Type](../)
+[Power Type](../)
 
- Fires an action when an item is equipped.
+Fires an action when an item is equipped.
 
- Type ID: `ope:action_on_equip`
+Type ID: `ope:action_on_equip`
 
- ### Fields
+### Fields
 
- {{build_field_table(
- "head|item_conditions||Item condition to match the `head` item.",
- "chest|item_conditions||Item condition to match the `chest` item.",
- "legs|item_conditions||Item condition to match the `legs` item.",
- "feet|item_conditions||Item condition to match the `feet` item.",
- "offhand|item_conditions||Item condition to match the `offhand` item.",
- "action|entity_actions||Action to apply when the matching item is equipped."
- )}}
+{{build_field_table(
+"head|item_conditions||Item condition to match the `head` item.",
+"chest|item_conditions||Item condition to match the `chest` item.",
+"legs|item_conditions||Item condition to match the `legs` item.",
+"feet|item_conditions||Item condition to match the `feet` item.",
+"offhand|item_conditions||Item condition to match the `offhand` item.",
+"action|entity_actions||Action to apply when the matching item is equipped."
+)}}
 
- ### Example
- ```json
- {
-     "type": "ope:action_on_equip",
-     "head": {
-         "type": "origins:ingredient",
-         "ingredient": {
+### Example
+```json
+{
+    "type": "ope:action_on_equip",
+    "head": {
+        "type": "origins:ingredient",
+        "ingredient": {
             "item": "minecraft:netherite_helmet"
-         }
-     },
-     "action": {
-         "type": "origins:heal",
-         "amount": 6
-     }
- }
- ```
- This power would heal you for 3 hearts when you equip a netherite helmet.
+        }
+    },
+    "action": {
+        "type": "origins:heal",
+        "amount": 6
+    }
+}
+```
+This power would heal you for 3 hearts when you equip a netherite helmet.
  */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class ActionOnEquipPower extends Power {

@@ -12,31 +12,31 @@ import net.minecraft.entity.player.PlayerEntity;
 import java.util.function.Predicate;
 
 /** md
- ---
- title: Prevent Label Render (Power Type)
- date: 2021-10-11
- ---
- # Prevent Label Render
+---
+title: Prevent Label Render (Power Type)
+date: 2021-10-11
+---
+# Prevent Label Render
 
- [Power Type](../)
+[Power Type](../)
 
- Prevents the players label from rendering
+Prevents the players label from rendering
 
- Type ID: `ope:prevent_label_render`
+Type ID: `ope:prevent_label_render`
 
- ### Fields
+### Fields
 
- {{build_field_table(
- "entity_condition|entity_conditions|_optional_|Which entities shouldn't see the label"
- )}}
+{{build_field_table(
+"entity_condition|entity_conditions|_optional_|Which entities shouldn't see the label"
+)}}
 
- ### Example
- ```json
- {
+### Example
+```json
+{
     "type": "ope:prevent_label_render"
- }
- ```
- This power causes a players label to not render for anyone.
+}
+```
+This power causes a players label to not render for anyone.
  */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})
 public class PreventLabelRenderPower extends Power {

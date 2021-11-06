@@ -10,36 +10,36 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 
 /** md
- ---
- title: Modify Status Effect Amplifier (Power Type)
- date: 2021-10-08
- ---
- # Modify Status Effect Amplifier
+---
+title: Modify Status Effect Amplifier (Power Type)
+date: 2021-10-08
+---
+# Modify Status Effect Amplifier
 
- [Power Type](../)
+[Power Type](../)
 
- Modifies an amplifier level for a status effect.
+Modifies an amplifier level for a status effect.
 
- Type ID: `ope:modify_status_effect_amplifier`
+Type ID: `ope:modify_status_effect_amplifier`
 
- ### Fields
+### Fields
 
- {{build_field_table(
- "status_effect|data_types/identifier||Status effect to modify",
- "modifier|data_types/modifier_operation||Modifier to apply to the status effect amplifier"
- )}}
+{{build_field_table(
+"status_effect|data_types/identifier||Status effect to modify",
+"modifier|data_types/modifier_operation||Modifier to apply to the status effect amplifier"
+)}}
 
- ### Example
- ```json
- {
+### Example
+```json
+{
     "type": "ope:modify_status_effect_amplifier",
     "status_effect": "minecraft:strength",
     "modifier": {
-         "operation": "addition",
-         "value": 1
+        "operation": "addition",
+        "value": 1
     }
- }
- ```
+}
+```
 This power would increase the amplifier of the strength status effect whenever you receive it.
  */
 @SuppressWarnings({"UnstableApiUsage", "deprecation"})

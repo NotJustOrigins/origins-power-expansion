@@ -6,6 +6,7 @@ nav:
     - Actions:
       - Block Actions: block_actions.md
       - Entity Actions: entity_actions.md
+      - Item Actions: item_actions.md
 theme: readthedocs
 markdown_extensions:
   - pymdownx.superfences
@@ -37,5 +38,12 @@ plugins:
           extract:
           - start: ^\s*/\*+\W?md\b
             stop: ^\s*\*\/\s*$
+        - directory_pattern: actions/item
+          pattern: ([A-z]+)Action\.java$
+          destination: \g<1>.md
+          destination_directory: /item_actions
+          extract:
+            - start: ^\s*/\*+\W?md\b
+              stop: ^\s*\*\/\s*$
   - macros:
       module_name: docs/helpers

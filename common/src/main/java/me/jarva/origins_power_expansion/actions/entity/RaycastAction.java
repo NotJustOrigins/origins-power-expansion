@@ -72,7 +72,7 @@ public class RaycastAction {
         Vec3d eyePosition = entity.getCameraPosVec(0);
         Vec3d lookVector = entity.getRotationVec(0);
         Vec3d traceEnd = eyePosition.add(lookVector.x * distance, lookVector.y * distance, lookVector.z * distance);
-        Box box = entity.getBoundingBox().stretch(lookVector).expand(1.0D);
+        Box box = entity.getBoundingBox().stretch(lookVector).expand(distance);
 
         RaycastContext context = new RaycastContext(eyePosition, traceEnd, RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.ANY, entity);
         BlockHitResult blockHitResult = entity.world.raycast(context);
